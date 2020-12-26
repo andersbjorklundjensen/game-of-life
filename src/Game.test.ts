@@ -10,6 +10,6 @@ describe('Game class tests', () => {
       [DEAD, DEAD],
     ];
 
-    const game = new Game();
+    const game = new Game(grid);
   })
 })
