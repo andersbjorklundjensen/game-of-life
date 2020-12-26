@@ -13,6 +13,19 @@ export default class Game {
   }
 
   public getAliveNeighborsForCell(x: number, y: number) {
-    return 0;
+    if (!this.grid[x][y]) return 0;
+
+    let total = 0;
+
+    for (let i = x - 1; i <= x + 1; i++) {
+      for (let j = y - 1; j <= y + 1; j++) {
+        if (!(j === y && i === x)) {
+          if (this.getGrid()[i][j].isAlive())
+            total++;
+        }
+      }
+    }
+
+    return total;
   }
 }

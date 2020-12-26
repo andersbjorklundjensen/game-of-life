@@ -6,4 +6,8 @@ export default class Cell {
   constructor($state: CellState) {
     this.state = $state;
   }
+
+  public isAlive() {
+    return this.state === CellState.ALIVE;
+  }
 }

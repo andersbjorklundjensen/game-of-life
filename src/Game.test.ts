@@ -5,8 +5,9 @@ import Cell from './Cell';
 const { DEAD, ALIVE } = CellState;
 
 const deadGrid = [
-  [DEAD, DEAD],
-  [DEAD, DEAD],
+  [DEAD, DEAD, DEAD],
+  [DEAD, DEAD, DEAD],
+  [DEAD, DEAD, DEAD],
 ];
 
 describe('Game class tests', () => {
@@ -14,8 +15,9 @@ describe('Game class tests', () => {
     const game = new Game(deadGrid);
 
     expect(game.getGrid()).toEqual([
-      [new Cell(DEAD), new Cell(DEAD)],
-      [new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
     ])
   })
 
@@ -23,5 +25,16 @@ describe('Game class tests', () => {
     const game = new Game(deadGrid)
 
     expect(game.getAliveNeighborsForCell(1, 1)).toBe(0);
+  })
+
+  it('should be able to get number of alive neighbors for a cell with a 3x3 grid with 2 alive neighbors', () => {
+    const grid = [
+      [ALIVE, DEAD, DEAD],
+      [DEAD, ALIVE, DEAD],
+      [DEAD, DEAD, ALIVE],
+    ]
+    const game = new Game(grid)
+
+    expect(game.getAliveNeighborsForCell(1, 1)).toBe(2);
   })
 })
