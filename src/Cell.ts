@@ -10,4 +10,8 @@ export default class Cell {
   public isAlive() {
     return this.state === CellState.ALIVE;
   }
+
+  public getNextState(numberOfAliveNeighbors: number) {
+    if (numberOfAliveNeighbors < 2) return CellState.DEAD;
+  }
 }
