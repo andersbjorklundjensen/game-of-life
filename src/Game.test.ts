@@ -1,5 +1,6 @@
 import Game from './Game';
 import CellState from './ECellState';
+import Cell from './Cell';
 
 const { DEAD, ALIVE } = CellState;
 
@@ -11,5 +12,10 @@ describe('Game class tests', () => {
     ];
 
     const game = new Game(grid);
+
+    expect(game.getGrid()).toEqual([
+      [new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD)],
+    ])
   })
 })
