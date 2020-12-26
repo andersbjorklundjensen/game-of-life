@@ -28,6 +28,9 @@ describe('Cell class tests', () => {
   it('should change state from DEAD to ALIVE, if it has exactly 3 live neighbors', () => {
     const cell = new Cell(DEAD);
 
-    expect(cell.getNextState(3)).toBe(ALIVE);
+    for (let i = 0; i <= 8; i++) {
+      if (i === 3) expect(cell.getNextState(3)).toBe(ALIVE);
+      else expect(cell.getNextState(i)).toBe(DEAD);
+    }
   })
 });
