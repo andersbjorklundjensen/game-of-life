@@ -11,4 +11,8 @@ export default class Game {
   public getGrid() {
     return this.grid;
   }
+
+  public getAliveNeighborsForCell(x: number, y: number) {
+    return 0;
+  }
 }
