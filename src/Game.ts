@@ -19,9 +19,13 @@ export default class Game {
 
     for (let i = x - 1; i <= x + 1; i++) {
       for (let j = y - 1; j <= y + 1; j++) {
-        if (!(j === y && i === x)) {
-          if (this.getGrid()[i][j].isAlive())
-            total++;
+        if (!(i > this.grid.length - 1 || j > this.grid[0].length - 1)) {
+          if (!(j < 0 || i < 0)) {
+            if (!(j === y && i === x)) {
+              if (this.getGrid()[i][j].isAlive())
+                total++;
+            }
+          }
         }
       }
     }
