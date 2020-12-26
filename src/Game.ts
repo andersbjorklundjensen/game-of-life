@@ -28,4 +28,13 @@ export default class Game {
 
     return total;
   }
+
+  public generateNextGridState(): Cell[][] {
+    return this.grid
+      .map((row, rowIndex) => row
+        .map((cell, cellIndex) => {
+          const aliveNeighbors = this.getAliveNeighborsForCell(rowIndex, cellIndex);
+          return new Cell(cell.getNextState(aliveNeighbors));
+        }));
+  }
 }

@@ -37,4 +37,24 @@ describe('Game class tests', () => {
 
     expect(game.getAliveNeighborsForCell(1, 1)).toBe(2);
   })
+
+  it('should generate new grid state, testing this with a blinker oscillator', () => {
+    const grid = [
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+    ]
+
+    const game = new Game(grid);
+
+    expect(game.generateNextGridState()).toEqual([
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(ALIVE), new Cell(ALIVE), new Cell(ALIVE), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+    ])
+  })
 })
