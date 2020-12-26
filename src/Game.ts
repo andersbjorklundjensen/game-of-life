@@ -41,4 +41,9 @@ export default class Game {
           return new Cell(cell.getNextState(aliveNeighbors));
         }));
   }
+
+  public tick() {
+    const nextState = this.generateNextGridState();
+    this.grid = nextState;
+  }
 }

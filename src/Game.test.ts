@@ -57,4 +57,26 @@ describe('Game class tests', () => {
       [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
     ])
   })
+
+  it('should set the grid property in game class to next state, when calling tick method', () => {
+    const grid = [
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, ALIVE, DEAD, DEAD],
+      [DEAD, DEAD, DEAD, DEAD, DEAD],
+    ]
+
+    const game = new Game(grid);
+
+    game.tick();
+
+    expect(game.getGrid()).toEqual([
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(ALIVE), new Cell(ALIVE), new Cell(ALIVE), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+      [new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD), new Cell(DEAD)],
+    ])
+  });
 })
