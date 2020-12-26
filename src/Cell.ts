@@ -14,5 +14,6 @@ export default class Cell {
   public getNextState(numberOfAliveNeighbors: number) {
     if (numberOfAliveNeighbors < 2) return CellState.DEAD;
     if (numberOfAliveNeighbors === 2 || numberOfAliveNeighbors === 3) return CellState.ALIVE;
+    if (numberOfAliveNeighbors > 3) return CellState.DEAD;
   }
 }
