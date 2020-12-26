@@ -1,11 +1,13 @@
 import Game from './Game';
-import Cell from './Cell';
+import CellState from './ECellState';
+
+const { DEAD, ALIVE } = CellState;
 
 describe('Game class tests', () => {
   it('should initialize a game with a grid of cell objects', () => {
     const grid = [
-      [new Cell(), new Cell()],
-      [new Cell(), new Cell()],
+      [DEAD, DEAD],
+      [DEAD, DEAD],
     ];
 
     const game = new Game();
