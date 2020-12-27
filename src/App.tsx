@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
+import Game from './game-of-life-code/Game';
+import generateGrid from './game-of-life-code/generateGrid';
+
+const generatedGrid = generateGrid(10, 10);
+const game = new Game(generatedGrid);
 
 const App = () => {
-  const [gridSize, setGridSize] = useState(0)
   return (
     <div>
       <h1>Game of life</h1>
-      <div data-testid="gridSize">{gridSize}</div>
-      <button onClick={() => setGridSize(prev => prev + 1)}>+</button>
-      <button onClick={() => setGridSize(prev => prev - 1)}>-</button>
+      <div>
+        <table>
+          <tbody>
+            {game.getGrid().map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {row.map((cell, cellIndex) => <td key={cellIndex}></td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

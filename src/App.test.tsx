@@ -10,23 +10,13 @@ describe('App component tests', () => {
     expect(headline).toHaveTextContent('Game of life');
   });
 
-  it('renders an adjustable grid size variable', () => {
+  it('renders a 10x10 grid', () => {
     render(<App />);
 
-    const incrementButton = screen.getByRole('button', {
-      name: '+'
-    });
-    const decrementButton = screen.getByRole('button', {
-      name: '-'
-    });
-    const counter = screen.getByTestId('gridSize')
+    const expectedNumberOfCells = 100; 
 
-    expect(counter).toHaveTextContent('0');
+    const allCells = screen.getAllByRole('cell');
 
-    fireEvent.click(incrementButton);
-    expect(counter).toHaveTextContent('1');
-
-    fireEvent.click(decrementButton);
-    expect(counter).toHaveTextContent('0');
-  });
+    expect(allCells.length).toBe(expectedNumberOfCells);
+  })
 })
