@@ -15,7 +15,7 @@ const App = () => {
     const newGrid = game.getGrid()
       .map((row, rowI) =>
         row.map((cell, cellI) => {
-          if (rowIndex == rowI && cellIndex === cellI) {
+          if (rowIndex === rowI && cellIndex === cellI) {
             const newCellState = isCellAlive ? CellState.DEAD : CellState.ALIVE;
             return new Cell(newCellState);
           } else {
@@ -53,6 +53,7 @@ const App = () => {
           </tbody>
         </table>
         <button onClick={() => nextState()}>Next state</button>
+        <button onClick={() => setInterval(nextState, 500)}>play</button>
       </div>
     </div>
   )

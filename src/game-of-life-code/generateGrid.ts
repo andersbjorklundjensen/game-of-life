@@ -1,7 +1,6 @@
-import Cell from "./Cell";
 import CellState from "./ECellState";
 
-export default function (x: number, y: number) {
+export default function generateGrid(x: number, y: number) {
   let generatedGrid = [];
 
   for (let i = 0; i < x; i++) {
