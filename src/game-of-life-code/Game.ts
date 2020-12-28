@@ -46,4 +46,8 @@ export default class Game {
     const nextState = this.generateNextGridState();
     this.grid = nextState;
   }
+
+  public setGrid(newGrid: Cell[][]) {
+    this.grid = newGrid;
+  }
 }

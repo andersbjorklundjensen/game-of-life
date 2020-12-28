@@ -19,4 +19,13 @@ describe('App component tests', () => {
 
     expect(allCells.length).toBe(expectedNumberOfCells);
   })
+
+  it('should change the state and color of cell when clicking it', () => {
+    render(<App />)
+
+    const firstCell = screen.getAllByRole('cell')[0];
+    fireEvent.click(firstCell)
+
+    expect(firstCell).toHaveClass('alive');
+  })
 })
