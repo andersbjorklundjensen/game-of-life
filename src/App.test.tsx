@@ -28,4 +28,22 @@ describe('App component tests', () => {
 
     expect(firstCell).toHaveClass('alive');
   })
+
+  it('should render next state when click next state button', () => {
+    render(<App />);
+
+    const allCells = screen.getAllByRole('cell');
+
+    fireEvent.click(allCells[5]);
+    fireEvent.click(allCells[5 + 10]);
+    fireEvent.click(allCells[5 + 20]);
+
+    const nextStateButton = screen.getByRole('button', { name: 'Next state' });
+
+    fireEvent.click(nextStateButton);
+
+    expect(allCells[4 + 10]).toHaveClass('alive');
+    expect(allCells[5 + 10]).toHaveClass('alive');
+    expect(allCells[6 + 10]).toHaveClass('alive');
+  })
 })

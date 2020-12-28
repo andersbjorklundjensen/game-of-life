@@ -28,8 +28,14 @@ const App = () => {
     setGrid(newGrid);
   }
 
+  const nextState = () => {
+    const nextState = game.generateNextGridState();
+    game.setGrid(nextState);
+    setGrid(nextState);
+  }
+
   return (
-    <div>
+    <div className="container">
       <h1>Game of life</h1>
       <div>
         <table>
@@ -46,6 +52,7 @@ const App = () => {
             ))}
           </tbody>
         </table>
+        <button onClick={() => nextState()}>Next state</button>
       </div>
     </div>
   )
